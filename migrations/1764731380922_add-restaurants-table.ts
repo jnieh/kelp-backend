@@ -10,8 +10,8 @@ export async function up(pgm: MigrationBuilder): Promise<void> {
   pgm.createTable('restaurants', {
     id: 'id',
     google_place_id: { type: 'text', notNull: true, unique: true },
-    // Using geography(Point, 4326) for accurate earth-distance calculations
-    geolocation: { type: 'geography(Point, 4326)', notNull: true },
+    // Using public.geography(Point, 4326) to ensure it finds the type in public schema
+    geolocation: { type: 'public.geography(Point, 4326)', notNull: true },
     name: { type: 'text', notNull: true }, // Added name as it's essential
     created_at: {
       type: 'timestamp',
