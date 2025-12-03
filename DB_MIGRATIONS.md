@@ -25,14 +25,26 @@ npm run migrate:create <migration-name>
 This will create a `.ts` file in `migrations/`. Open it and define your `up` and `down` steps.
 
 ### 3. Run Migrations
-To apply pending migrations:
+To apply pending migrations to the default (public) schema:
 ```bash
 npm run migrate:up
 ```
 
-To revert the last migration:
+#### Multi-Schema Migrations
+To run migrations for the **staging** schema (creates schema if missing):
 ```bash
-npm run migrate:down
+npm run migrate:up:staging
+```
+
+To run migrations for the **public** schema:
+```bash
+npm run migrate:up:public
+```
+
+To revert migrations, use the corresponding `down` commands:
+```bash
+npm run migrate:down:staging
+npm run migrate:down:public
 ```
 
 ## Troubleshooting

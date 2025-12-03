@@ -11,7 +11,11 @@
     "migrate": "node-pg-migrate",
     "migrate:create": "node-pg-migrate create -j ts",
     "migrate:up": "node -r ts-node/register node_modules/.bin/node-pg-migrate up",
-    "migrate:down": "node -r ts-node/register node_modules/.bin/node-pg-migrate down"
+    "migrate:down": "node -r ts-node/register node_modules/.bin/node-pg-migrate down",
+    "migrate:up:staging": "npm run migrate:up -- -s staging --create-schema",
+    "migrate:down:staging": "npm run migrate:down -- -s staging",
+    "migrate:up:public": "npm run migrate:up -- -s public",
+    "migrate:down:public": "npm run migrate:down -- -s public"
   },
   "repository": {
     "type": "git",
